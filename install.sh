@@ -33,29 +33,15 @@ clear
 lsblk
 
 
-# Function to prompt for device name
-get_device_name() {
-  local prompt_message=$1
-  local device_name
-
-  while true; do
-    echo "$prompt_message"
-    read device_name
-
-    # Check if the device name is not empty
-    if [ -n "$device_name" ]; then
-      echo $device_name
-      return
-    else
-      echo "No device name entered. Please try again."
-    fi
-  done
-}
-
 # Get the device names
-efi_disk=$(get_device_name "Please enter the device name for the EFI partition (e.g., /dev/sda1):")
-main_disk=$(get_device_name "Please enter the device name for the main partition (e.g., /dev/sda2):")
-swap_disk=$(get_device_name "Please enter the device name for the swap partition (e.g., /dev/sda3):")
+echo "Please enter the device name for the EFI partition (e.g., /dev/sda1):"
+read efi_disk
+
+echo "Please enter the device name for the main partition (e.g., /dev/sda2):"
+read main_disk
+
+echo "Please enter the device name for the swap partition (e.g., /dev/sda3):"
+read swap_disk
 
 # Format the disks
 mkfs.fat -F32 "$efi_disk"
