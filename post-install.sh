@@ -26,10 +26,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable bluetooth
 systemctl enable networkmanager
 
-exit 
-
-unmount -lR /mnt
-
-echo "Post-installation complete. Exit chroot and reboot."
-
-shutdown now
+exit
