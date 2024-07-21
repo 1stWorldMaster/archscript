@@ -1,4 +1,13 @@
 # ---ARCH INSTALLER SCRIPT---
+countdown() {
+  local seconds=$1
+  while [ $seconds -gt 0 ]; do
+    echo -ne "Time remaining: $seconds\033[0K\r"
+    sleep 1
+    : $((seconds--))
+  done
+  echo "Time's up!"
+}
 
 # Function to prompt for device name
 get_device_name() {
@@ -15,18 +24,17 @@ get_device_name() {
   done
 }
 
-clear
 
+clear
 echo "Lets view the disk file"
 lsblk #command to view the file 
 echo "Press Enter to continue..."
 read
 
-# Function call to get the device name to continue the installation
 get_device_name
-
-# Use the entered device name with cfdisk
+countdown 1
 cfdisk "$device_name"
+countdown 5
 
 clear
 
@@ -37,10 +45,8 @@ lsblk
 # Get the device names
 echo "Please enter the device name for the EFI partition (e.g., /dev/sda1):"
 read efi_disk
-
 echo "Please enter the device name for the main partition (e.g., /dev/sda2):"
 read main_disk
-
 echo "Please enter the device name for the swap partition (e.g., /dev/sda3):"
 read swap_disk
 
@@ -61,52 +67,46 @@ clear
 lsblk
 
 pacstrap -i /mnt base base-devel linux linux-firmware sudo git neofetch htop amd-ucode nano vim bluez bluez-utils networkmanager
-
+echo "Press Enter to continue"
+read
 clear
 lsblk
 
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
 
-#Timer Function
-echo "Starting 5-second timer..."
-sleep 5
-echo "Timer expired!"
+countdown 5
 
 clear
+
+#Cover this in EOF setting
 
 arch-chroot /mnt
 
 echo "Testing"
-
 neofetch
-
-#Timer Function
-echo "Starting 5-second timer..."
-sleep 5
-echo "Timer expired!"
+countdown 9
 
 clear
 
 echo "Type the password for sudo account"
 passwd
 
+countdown 3
 echo "Type the user name "
 read user_name
-
 useradd -m -g users -G wheel, storage,power,video,audio -s /bin/bash "$user_name"
-
+countdown 3
 echo "Type the user passwd"
 passwd "$user_name"
+countdown 3
 
+clear
 echo "Uncomment the line with wheel may be 3rd last line"
 
-#Timer Function
-echo "Starting 5-second timer..."
-sleep 5
-echo "Timer expired!"
+countdown 5
 
-EDITOR= nano visudo
+EDITOR=nano visudo
 
 su "$user_name"
 
