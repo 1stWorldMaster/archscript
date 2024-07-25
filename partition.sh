@@ -66,8 +66,8 @@ mount "$efi_disk" /mnt/boot
 swapon "$swap_disk"
 clear
 
-echo "Do verify if the drives are mounted properly "
 countdown 5
+echo "Do verify if the drives are mounted properly "
 lsblk
 echo "Press enter to continue "
 read
@@ -80,6 +80,8 @@ clear
 lsblk
 echo "Further mounting to take place"
 countdown 5
+echo "Press enter to continue "
+read
 
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
