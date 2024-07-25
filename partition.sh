@@ -24,9 +24,11 @@ get_device_name() {
   done
 }
 
+pacman -Sy
+pacman -Sy archlinux-keyring
+
 
 clear
-echo "Lets view the disk file"
 lsblk #command to view the file 
 echo "Press Enter to continue..."
 read
@@ -62,92 +64,27 @@ mount "$main_disk" /mnt
 mkdir /mnt/boot
 mount "$efi_disk" /mnt/boot
 swapon "$swap_disk"
-
 clear
-lsblk
 
-pacstrap -i /mnt base base-devel linux linux-firmware sudo git neofetch htop amd-ucode nano vim bluez bluez-utils networkmanager
+echo "Do verify if the drives are mounted properly "
+countdown 5
+lsblk
+echo "Press enter to continue "
+read
+
+pacstrap -i /mnt base base-devel linux linux-firmware git sudo neofetch htop amd-ucode nano vim bluez bluez-utils networkmanager
 echo "Press Enter to continue"
 read
 clear
+
 lsblk
+echo "Further mounting to take place"
+countdown 5
 
 genfstab -U /mnt >> /mnt/etc/fstab 
 cat /mnt/etc/fstab
-
 countdown 5
-
 clear
 
-#Cover this in EOF setting
 
-arch-chroot /mnt
-
-echo "Testing"
-neofetch
-countdown 9
-
-clear
-
-echo "Type the password for sudo account"
-passwd
-
-countdown 3
-echo "Type the user name "
-read user_name
-useradd -m -g users -G wheel, storage,power,video,audio -s /bin/bash "$user_name"
-countdown 3
-echo "Type the user passwd"
-passwd "$user_name"
-countdown 3
-
-clear
-echo "Uncomment the line with wheel may be 3rd last line"
-
-countdown 5
-
-EDITOR=nano visudo
-
-su "$user_name"
-
-clear
-
-sudo pacman -Syu
-
-exit
-
-#Post installation
-
-ln -sf /ur/share/zoneinfo/Asia/Kolkata /etc/localtime
-hwclock --systohc
-
-# Localization
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "KEYMAP=us" > /etc/vconsole.conf
-
-# Network configuration
-echo "myhostname" > /etc/archlinux
-echo "127.0.0.1 localhost" > /etc/hosts
-echo "::1       localhost" >> /etc/hosts
-echo "127.0.1.1 myhostname.localdomain archlinux" >> /etc/hosts
-
-
-# Install and configure GRUB
-pacman -S --noconfirm grub efibootmgr dosfstools mtools
-lsblk
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id-GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-
-# Enable essential services
-systemctl enable bluetooth
-systemctl enable networkmanager
-
-exit
-
-unmount -lR /mnt
-
-echo "Post-installation complete. Exit chroot and reboot."
-
-shutdown now
+arch-chroot /mnt 
