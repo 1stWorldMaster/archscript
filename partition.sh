@@ -88,5 +88,8 @@ cat /mnt/etc/fstab
 countdown 5
 clear
 
+mv install.sh arch-chroot /mnt
+mv setup.sh arch-chroot /mnt
+
 
 arch-chroot /mnt 
