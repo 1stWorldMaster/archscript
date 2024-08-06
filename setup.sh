@@ -33,17 +33,16 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S hyprland sddm kitty rofi thunar waybar neovim code pipewire pipewire-alsa xorg-xwayland
+sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar neovim code alsa-utils pulseaudio pauvcontrol 
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
 
+yay -S waybar
 
 echo "Enabling and starting services..."
 
-sudo systemctl enable --now pipewire pipewire-pulse
-
-sudo systemctl enable sddm
-sudo systemctl start sddm
+sudo systemctl enable ly
+sudo systemctl start ly
