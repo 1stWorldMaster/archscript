@@ -33,7 +33,7 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar neovim code alsa-utils pulseaudio pauvcontrol 
+sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar neovim code alsa-utils pulseaudio pavucontrol libreoffice vlc unzip gimp ttf-firacode-nerd ttf-jetbrains-mono-nerd
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
