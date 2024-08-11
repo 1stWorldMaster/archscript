@@ -33,16 +33,19 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar neovim code alsa-utils pulseaudio pavucontrol libreoffice vlc unzip gimp ttf-firacode-nerd ttf-jetbrains-mono-nerd firefox
+sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim ttf-firacode-nerd ttf-jetbrains-mono-nerd firefox
+sudo pacman -S code neovim
+sudo pacman -S gimp vlc libreoffice microsoft-edge-stable
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
 
-yay -S waybar
+yay -S waybar auto-cpufreq
 
 echo "Enabling and starting services..."
+
 
 sudo systemctl enable ly
 sudo systemctl start ly
