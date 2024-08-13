@@ -33,16 +33,20 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim ttf-firacode-nerd ttf-jetbrains-mono-nerd firefox
+sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
 sudo pacman -S code neovim
-sudo pacman -S gimp vlc libreoffice microsoft-edge-stable
+sudo pacman -S ttf-firacode-nerd ttf-jetbrains-mono-nerd
+sudo pacman -S gimp vlc libreoffice
 
+cd
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
 
-yay -S waybar auto-cpufreq
+yay -S waybar
+yay -S auto-cpufreq
+yay -S microsoft-edge-stable
 
 echo "Enabling and starting services..."
 
