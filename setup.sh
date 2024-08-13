@@ -35,19 +35,9 @@ done
 sudo pacman -Syu
 sudo pacman -S --noconfirm hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
 sudo pacman -S --noconfirm code neovim 
-sudo pacman -S --noconfirm ttf-firacode-nerd ttf-jetbrains-mono-nerd
 sudo pacman -S --noconfirm gimp vlc libreoffice
-sudo pacman -S --noconfirm clang unzip
+sudo pacman -S --noconfirm clang unzip wget
 
-cd
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-
-yay -S waybar
-yay -S auto-cpufreq
-yay -S microsoft-edge-stable
 
 echo "Enabling and starting services..."
 
