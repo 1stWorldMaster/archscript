@@ -33,10 +33,11 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
-sudo pacman -S code neovim
-sudo pacman -S ttf-firacode-nerd ttf-jetbrains-mono-nerd
-sudo pacman -S gimp vlc libreoffice
+sudo pacman -S --noconfirm hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
+sudo pacman -S --noconfirm code neovim 
+sudo pacman -S --noconfirm ttf-firacode-nerd ttf-jetbrains-mono-nerd
+sudo pacman -S --noconfirm gimp vlc libreoffice
+sudo pacman -S --noconfirm clang unzip
 
 cd
 git clone https://aur.archlinux.org/yay.git
