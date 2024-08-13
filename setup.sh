@@ -36,7 +36,7 @@ sudo pacman -Syu
 sudo pacman -S --noconfirm hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
 sudo pacman -S --noconfirm code neovim 
 sudo pacman -S --noconfirm gimp vlc libreoffice
-sudo pacman -S --noconfirm clang unzip wget
+sudo pacman -S --noconfirm clang unzip wget hyprpaper
 
 
 echo "Enabling and starting services..."
