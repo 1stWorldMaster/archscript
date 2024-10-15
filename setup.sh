@@ -33,14 +33,15 @@ done
 
 
 sudo pacman -Syu
-sudo pacman -S --noconfirm hyprland ly xorg-xwayland kitty rofi thunar alsa-utils pulseaudio pavucontrol neovim firefox
+sudo pacman -S gnome gnome-extra gnome-tweaks gnome-shell-extensions
+sudo pacman -S --noconfirm  kitty alsa-utils pulseaudio pavucontrol neovim firefox
 sudo pacman -S --noconfirm code neovim 
 sudo pacman -S --noconfirm gimp vlc libreoffice
-sudo pacman -S --noconfirm clang unzip wget hyprpaper gdb
+sudo pacman -S --noconfirm clang unzip wget gdb
 
 
 echo "Enabling and starting services..."
 
 
-sudo systemctl enable ly
-sudo systemctl start ly
+sudo systemctl enable gdm
+sudo systemctl start gdm
