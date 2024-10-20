@@ -34,10 +34,6 @@ done
 
 sudo pacman -Syu
 sudo pacman -S gnome gnome-tweaks gnome-shell-extensions
-sudo pacman -S --noconfirm alsa-utils pavucontrol firefox
-sudo pacman -S --noconfirm code neovim 
-sudo pacman -S --noconfirm gimp vlc libreoffice
-sudo pacman -S --noconfirm clang unzip wget gdb
 
 
 echo "Enabling and starting services..."

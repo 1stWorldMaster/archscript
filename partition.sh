@@ -90,6 +90,7 @@ clear
 
 mv install.sh arch-chroot /mnt
 mv setup.sh arch-chroot /mnt
+mv essential.sh
 
 
 arch-chroot /mnt 
