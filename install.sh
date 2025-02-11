@@ -10,7 +10,6 @@ countdown() {
 
 
 echo "Testing"
-neofetch
 countdown 9
 
 clear

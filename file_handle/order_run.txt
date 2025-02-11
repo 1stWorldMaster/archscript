@@ -1,0 +1,9 @@
+partition.sh
+install.sh
+post-install.sh
+setup.sh
+
+downlaod.sh
+mirror1.sh
+mirror2.sh
+pacman.sh

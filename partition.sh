@@ -72,7 +72,7 @@ lsblk
 echo "Press enter to continue "
 read
 
-pacstrap -i /mnt base base-devel linux linux-firmware git sudo neofetch htop amd-ucode nano vim bluez bluez-utils networkmanager
+pacstrap -i /mnt base base-devel linux linux-firmware git sudo amd-ucode nano bluez bluez-utils networkmanager
 echo "Press Enter to continue"
 read
 clear
@@ -90,7 +90,7 @@ clear
 
 mv install.sh arch-chroot /mnt
 mv setup.sh arch-chroot /mnt
-mv essential.sh
+mv file_handle arch-chroot /mnt
 
 
 arch-chroot /mnt 
