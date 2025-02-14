@@ -1,4 +1,3 @@
-#
 # ~/.bashrc
 #
 
@@ -13,6 +12,10 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/emulator:$PATH
 
 export PATH=/opt/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
