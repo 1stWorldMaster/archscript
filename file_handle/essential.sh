@@ -9,7 +9,7 @@ countdown() {
   echo "Time's up!"
 }
 
-sudo pacman -S --noconfirm firefox alsa-utils pavucontrol code neovim clang unzip wget gdb vlc nvtop htop neofetch make gimp vlc libreoffice
+sudo pacman -S --noconfirm firefox alsa-utils pavucontrol code neovim clang unzip wget gdb vlc nvtop htop neofetch make gimp vlc libreoffice ripgrep bat github-cli gitg drawio-desktop wl-clipboard
 sudo pacman -S --noconfirm nvidia-open
 neofetch
 nvidia-smi
