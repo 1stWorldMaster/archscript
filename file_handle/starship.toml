@@ -17,10 +17,13 @@ truncation_length = 5
 style = "bold grey"
 format = "[ ](bold 214)[$path]($style)[$lock_symbol]($lock_style) "
 
-# [git_branch]
-#format = " [$symbol$branch]($style) "
-# symbol = "🍣 "
-# style = "bold yellow"
+[git_status]
+disabled = true
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "🍣 "
+style = "bold yellow"
 
 # [git_commit]
 # commit_hash_length = 8
@@ -30,7 +33,10 @@ format = "[ ](bold 214)[$path]($style)[$lock_symbol]($lock_style) "
 style_user = "bold 100"
 style_root = "bold grey"
 show_always = true
-format = "[ ](white)[$user]($style)"
+format = "[ ](white)[$user]($style)"
+
+
+#format = "[ ](white)[$user]($style)"
 
 [hostname]
 ssh_only = false
